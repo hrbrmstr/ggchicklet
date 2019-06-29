@@ -63,23 +63,15 @@ library(tidyverse)
 ## # … with 182 more rows
 
 debates_df %>% 
-  group_by(speaker) %>% 
-  mutate(idx = 1:n()) %>%
-  mutate(
-    esum = cumsum(elapsed),
-    start_pos = esum - elapsed
-  ) %>% 
-  ungroup() %>% 
-  { .ordr <<- count(., speaker, wt=elapsed, sort=TRUE) ; . } %>% 
-  mutate(
-    speaker = factor(speaker, levels = rev(.ordr$speaker))
-  ) %>% 
+  { .ordr <<- count(., speaker, wt=elapsed, sort=TRUE) ; . } %>% # order by who had the most time
+  mutate(speaker = factor(speaker, levels = rev(.ordr$speaker))) %>% 
   ggplot() +
   geom_chicklet(
-    aes(speaker, elapsed, group = idx, fill = topic),
-    position = position_stack(reverse=TRUE),
+    aes(speaker, elapsed, group = timestamp, fill = topic), # group lets us use temporal order vs fill order
+    position = position_stack(reverse=TRUE), # reverse otherwise earliest is at end
     radius = unit(3, "pt"), 
-    width = 0.6, color = "white"
+    width = 0.6, 
+    color = "white"
   ) +
   coord_flip() +
   ggthemes::scale_fill_tableau("Tableau 20") +
@@ -111,8 +103,8 @@ debates_df %>%
 
 | Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
 | :--- | -------: | ---: | --: | ---: | ----------: | ---: | -------: | ---: |
-| R    |        6 | 0.86 |  89 | 0.62 |          19 | 0.48 |       42 | 0.54 |
-| Rmd  |        1 | 0.14 |  55 | 0.38 |          21 | 0.52 |       36 | 0.46 |
+| R    |        6 | 0.86 |  89 | 0.65 |          19 | 0.48 |       42 | 0.54 |
+| Rmd  |        1 | 0.14 |  47 | 0.35 |          21 | 0.52 |       36 | 0.46 |
 
 ## Code of Conduct
 

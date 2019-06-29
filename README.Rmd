@@ -58,23 +58,15 @@ library(tidyverse)
 (debates_df <- read_csv("https://rud.is/data/2019-dem-debates.csv.gz"))
 
 debates_df %>% 
-  group_by(speaker) %>% 
-  mutate(idx = 1:n()) %>%
-  mutate(
-    esum = cumsum(elapsed),
-    start_pos = esum - elapsed
-  ) %>% 
-  ungroup() %>% 
-  { .ordr <<- count(., speaker, wt=elapsed, sort=TRUE) ; . } %>% 
-  mutate(
-    speaker = factor(speaker, levels = rev(.ordr$speaker))
-  ) %>% 
+  { .ordr <<- count(., speaker, wt=elapsed, sort=TRUE) ; . } %>% # order by who had the most time
+  mutate(speaker = factor(speaker, levels = rev(.ordr$speaker))) %>% 
   ggplot() +
   geom_chicklet(
-    aes(speaker, elapsed, group = idx, fill = topic),
-    position = position_stack(reverse=TRUE),
+    aes(speaker, elapsed, group = timestamp, fill = topic), # group lets us use temporal order vs fill order
+    position = position_stack(reverse=TRUE), # reverse otherwise earliest is at end
     radius = unit(3, "pt"), 
-    width = 0.6, color = "white"
+    width = 0.6, 
+    color = "white"
   ) +
   coord_flip() +
   ggthemes::scale_fill_tableau("Tableau 20") +
