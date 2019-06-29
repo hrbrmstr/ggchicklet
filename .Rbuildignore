@@ -8,6 +8,7 @@
 ^NOTES\.*html$
 ^\.codecov\.yml$
 ^README_files$
+^CONDUCT.*$
 ^doc$
 ^docs$
 ^tmp$

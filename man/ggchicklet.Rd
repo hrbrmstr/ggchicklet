@@ -4,12 +4,25 @@
 \name{ggchicklet}
 \alias{ggchicklet}
 \alias{ggchicklet-package}
-\title{...}
+\title{Create Chicklet (Rounded Segmented Column) Charts}
 \description{
+Sometimes it is useful to stylize column charts a bit more
+than just bland rectangles. Methods are provided to create rounded
+rectangle segmented column charts (i.e. "chicklets").
+}
+\details{
 \itemize{
 \item URL: \url{https://gitlab.com/hrbrmstr/ggchicklet}
 \item BugReports: \url{https://gitlab.com/hrbrmstr/ggchicklet/issues}
 }
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://gitlab.com/hrbrmstr/ggchicklet}
+  \item Report bugs at \url{https://gitlab.com/hrbrmstr/ggchicklet/issues}
+}
+
 }
 \author{
 Bob Rudis (bob@rud.is)

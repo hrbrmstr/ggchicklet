@@ -1,18 +1,9 @@
----
-output: rmarkdown::github_document
-editor_options: 
-  chunk_output_type: console
----
-```{r pkg-knitr-opts, include=FALSE}
-knitr::opts_chunk$set(
-  collapse=TRUE, fig.retina=2, message=FALSE, warning=FALSE
-)
-options(width=120)
-```
 
-[![Travis-CI Build Status](https://travis-ci.org/hrbrmstr/ggchicklet.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggchicklet) 
-[![Coverage Status](https://codecov.io/gh/hrbrmstr/ggchicklet/branch/master/graph/badge.svg)](https://codecov.io/gh/hrbrmstr/ggchicklet)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggchicklet)](https://cran.r-project.org/package=ggchicklet)
+[![Travis-CI Build
+Status](https://travis-ci.org/hrbrmstr/ggchicklet.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggchicklet)
+[![Coverage
+Status](https://codecov.io/gh/hrbrmstr/ggchicklet/branch/master/graph/badge.svg)](https://codecov.io/gh/hrbrmstr/ggchicklet)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/ggchicklet)](https://cran.r-project.org/package=ggchicklet)
 
 # ggchicklet
 
@@ -20,17 +11,17 @@ Create Chicklet (Rounded Segmented Column) Charts
 
 ## Description
 
-Sometimes it is useful to stylize column charts a bit more
-than just bland rectangles. Methods are provided to create rounded
-rectangle segmented column charts (i.e. "chicklets").
+Sometimes it is useful to stylize column charts a bit more than just
+bland rectangles. Methods are provided to create rounded rectangle
+segmented column charts (i.e. “chicklets”).
 
-## What's Inside The Tin
+## What’s Inside The Tin
 
 The following functions are implemented:
 
 ## Installation
 
-```{r install-ex, eval=FALSE}
+``` r
 devtools::install_git("https://sr.ht.com/~hrbrmstr/ggchicklet.git")
 # or
 devtools::install_git("https://gitlab.com/hrbrmstr/ggchicklet.git")
@@ -40,17 +31,17 @@ devtools::install_github("hrbrmstr/ggchicklet")
 
 ## Usage
 
-```{r lib-ex}
+``` r
 library(ggchicklet)
 
 # current version
 packageVersion("ggchicklet")
-
+## [1] '0.1.0'
 ```
 
 ### From the NYTimes
 
-```{r fig.width=10, fig.height=10, out.width="100%"}
+``` r
 library(stringi)
 library(hrbrthemes)
 library(tidyverse)
@@ -349,13 +340,17 @@ speaking_times %>%
   theme(legend.position = "bottom")
 ```
 
+<img src="README_files/figure-gfm/unnamed-chunk-1-1.png" width="100%" />
+
 ## ggchicklet Metrics
 
-```{r cloc, echo=FALSE}
-cloc::cloc_pkg_md()
-```
+| Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
+| :--- | -------: | ---: | --: | ---: | ----------: | ---: | -------: | ---: |
+| Rmd  |        1 | 0.14 | 303 | 0.77 |          22 | 0.54 |       36 | 0.46 |
+| R    |        6 | 0.86 |  89 | 0.23 |          19 | 0.46 |       42 | 0.54 |
 
 ## Code of Conduct
 
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). 
-By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of
+Conduct](CONDUCT.md). By participating in this project you agree to
+abide by its terms.
