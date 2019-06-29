@@ -12,7 +12,7 @@ options(width=120)
 
 [![Travis-CI Build Status](https://travis-ci.org/hrbrmstr/ggchicklet.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggchicklet) 
 [![Coverage Status](https://codecov.io/gh/hrbrmstr/ggchicklet/branch/master/graph/badge.svg)](https://codecov.io/gh/hrbrmstr/ggchicklet)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggchicklet)](https://cran.r-project.org/package=ggchicklet)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/ggchicklet)](https://cran.r-project.org/package=ggchicklet)
 
 # ggchicklet
 
