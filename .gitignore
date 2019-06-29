@@ -1,0 +1,9 @@
+.DS_Store
+.Rproj.user
+.Rhistory
+.RData
+.Rproj
+README_cache
+src/*.o
+src/*.so
+src/*.dll

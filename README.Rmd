@@ -1,0 +1,52 @@
+---
+output: rmarkdown::github_document
+editor_options: 
+  chunk_output_type: inline
+---
+```{r pkg-knitr-opts, include=FALSE}
+knitr::opts_chunk$set(collapse=TRUE, fig.retina=2, message=FALSE, warning=FALSE)
+options(width=120)
+```
+
+[![Travis-CI Build Status](https://travis-ci.org/hrbrmstr/ggchicklet.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggchicklet) 
+[![Coverage Status](https://codecov.io/gh/hrbrmstr/ggchicklet/branch/master/graph/badge.svg)](https://codecov.io/gh/hrbrmstr/ggchicklet)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggchicklet)](https://cran.r-project.org/package=ggchicklet)
+
+# ggchicklet
+
+## Description
+
+## What's Inside The Tin
+
+The following functions are implemented:
+
+## Installation
+
+```{r install-ex, eval=FALSE}
+devtools::install_git("https://sr.ht.com/~hrbrmstr/ggchicklet.git")
+# or
+devtools::install_git("https://gitlab.com/hrbrmstr/ggchicklet.git")
+# or (if you must)
+devtools::install_github("hrbrmstr/ggchicklet")
+```
+
+## Usage
+
+```{r lib-ex}
+library(ggchicklet)
+
+# current version
+packageVersion("ggchicklet")
+
+```
+
+## ggchicklet Metrics
+
+```{r cloc, echo=FALSE}
+cloc::cloc_pkg_md()
+```
+
+## Code of Conduct
+
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). 
+By participating in this project you agree to abide by its terms.

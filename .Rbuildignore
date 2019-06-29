@@ -1,0 +1,15 @@
+^.vscode$
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.travis\.yml$
+^README\.*Rmd$
+^README\.*html$
+^NOTES\.*Rmd$
+^NOTES\.*html$
+^\.codecov\.yml$
+^README_files$
+^doc$
+^docs$
+^tmp$
+^notes$
+^\.gitlab-ci\.yml$
