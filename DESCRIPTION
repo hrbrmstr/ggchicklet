@@ -10,7 +10,7 @@ Authors@R: c(
 Maintainer: Bob Rudis <bob@rud.is>
 Description: Sometimes it is useful to stylize column charts a bit more
     than just bland rectangles. Methods are provided to create rounded
-    rectangle segmented column charts (i.e. "chicklets").
+    rectangle segmented column charts (i.e. 'chicklets').
 URL: https://gitlab.com/hrbrmstr/ggchicklet
 BugReports: https://gitlab.com/hrbrmstr/ggchicklet/issues
 Encoding: UTF-8

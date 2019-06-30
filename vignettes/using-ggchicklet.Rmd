@@ -121,7 +121,7 @@ You can use `ggplot2::geom_col()` to create a similar chart without the rounded 
 
 - "`white`" stroke for the chicklet/segment (`geom_col()` has `NA` for the stroke)
 - automatic reversing of the `group` order (`geom_col()` uses the standard sort order)
-- radius setting of `unit(3, "px")` 
+- radius setting of `unit(3, "pt")` 
 - chicklet legend geom
 
 You will need to modify `colour`/`color` to use something besides "`white`" if you are using
