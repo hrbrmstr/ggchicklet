@@ -11,9 +11,16 @@ than just bland rectangles. Methods are provided to create rounded
 rectangle segmented column charts (i.e. "chicklets").
 }
 \details{
-\itemize{
-\item URL: \url{https://gitlab.com/hrbrmstr/ggchicklet}
-\item BugReports: \url{https://gitlab.com/hrbrmstr/ggchicklet/issues}
+\if{html}{
+A sample of the output from \code{geom_chicklet()}:
+
+\figure{chickletex.png}{options: width="100\%" alt="Figure: chickletex.png"}
+}
+
+\if{latex}{
+A sample of the output from \code{geom_chicklet()}:
+
+\figure{chickletex.png}{options: width=10cm}
 }
 }
 \seealso{

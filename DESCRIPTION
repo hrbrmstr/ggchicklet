@@ -1,6 +1,6 @@
 Package: ggchicklet
 Type: Package
-Title: Create Chicklet (Rounded Segmented Column) Charts
+Title: Create 'Chicklet' (Rounded Segmented Column) Charts
 Version: 0.1.0
 Date: 2019-06-28
 Authors@R: c(
@@ -19,7 +19,10 @@ Suggests:
     testthat,
     covr,
     hrbrthemes,
-    stringi
+    dplyr,
+    forcats,
+    knitr,
+    rmarkdown
 Depends:
     R (>= 3.2.0)
 Imports:
@@ -27,3 +30,4 @@ Imports:
     grid
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
+VignetteBuilder: knitr

@@ -4,8 +4,9 @@
 \alias{geom_chicklet}
 \title{Chicklet (rounded segmented column) charts}
 \usage{
-geom_chicklet(mapping = NULL, data = NULL, position = "stack",
-  radius = grid::unit(6, "pt"), ..., width = NULL, na.rm = FALSE,
+geom_chicklet(mapping = NULL, data = NULL,
+  position = ggplot2::position_stack(reverse = TRUE),
+  radius = grid::unit(3, "pt"), ..., width = NULL, na.rm = FALSE,
   show.legend = NA, inherit.aes = TRUE)
 }
 \arguments{
@@ -32,7 +33,7 @@ from a \code{formula} (e.g. \code{~ head(.x, 10)}).}
 \item{position}{Position adjustment, either as a string, or the result of
 a call to a position adjustment function.}
 
-\item{radius}{corner radius (default 6pt)}
+\item{radius}{corner radius (default 3px)}
 
 \item{...}{Other arguments passed on to \code{\link[=layer]{layer()}}. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
@@ -56,7 +57,26 @@ that define both data and aesthetics and shouldn't inherit behaviour from
 the default plot specification, e.g. \code{\link[=borders]{borders()}}.}
 }
 \description{
-Chicklet (rounded segmented column) charts
+This geom behaves much like \code{\link[ggplot2:geom_col]{ggplot2::geom_col()}} but provides the option to
+set a corner radius to turn sharp-edged bars into rounded rectangles; it also
+sets some sane defaults for making chicklet charts.
+}
+\details{
+\if{html}{
+A sample of the output from \code{geom_chicklet()}:
+
+\figure{chickletex.png}{options: width="100\%" alt="Figure: chickletex.png"}
+}
+
+\if{latex}{
+A sample of the output from \code{geom_chicklet()}:
+
+\figure{chickletex.png}{options: width=10cm}
+}
+}
+\note{
+the chicklet/segment stack positions are default set to be reversed (i.e.
+left-to-right/bottom-to-top == earliest to latest order).
 }
 \section{Aesthetics}{
 
@@ -73,3 +93,24 @@ Chicklet (rounded segmented column) charts
 }
 }
 
+\examples{
+library(ggplot2)
+
+data("debates2019")
+
+# set the speaker order
+spkr_ordr <- aggregate(elapsed ~ speaker, data = debates2019, sum)
+spkr_ordr <- spkr_ordr[order(spkr_ordr[["elapsed"]]),]
+
+debates2019$speaker <- factor(debates2019$speaker, spkr_ordr$speaker)
+
+ggplot(debates2019) +
+  # use 'group' to control left-to-right order
+  geom_chicklet(aes(speaker, elapsed, group = timestamp, fill = topic)) +
+  scale_y_continuous(expand = c(0, 0.01), position = "right") +
+  coord_flip() +
+  labs(x = NULL, y = "Minutes Spoken", fill = NULL) +
+  theme_minimal() +
+  theme(panel.grid.major.y = element_blank()) +
+  theme(legend.position = "bottom")
+}

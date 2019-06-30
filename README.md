@@ -22,9 +22,15 @@ The following functions are implemented:
 ## Installation
 
 ``` r
-devtools::install_git("https://sr.ht.com/~hrbrmstr/ggchicklet.git")
+install.packages("ggchicklet", repos = "https://cinc.rud.is")
+# or 
+devtools::install_git("https://git.rud.is/hrbrmstr/ggchicklet.git")
+# or 
+devtools::install_git("https://git.sr.ht/~hrbrmstr/ggchicklet")
 # or
-devtools::install_git("https://gitlab.com/hrbrmstr/ggchicklet.git")
+devtools::install_gitlab("hrbrmstr/ggchicklet")
+# or
+devtools::install_bitbucket("hrbrmstr/ggchicklet")
 # or (if you must)
 devtools::install_github("hrbrmstr/ggchicklet")
 ```
@@ -42,69 +48,61 @@ packageVersion("ggchicklet")
 ### From the NYTimes
 
 ``` r
-library(stringi)
 library(hrbrthemes)
 library(tidyverse)
 
-(debates_df <- read_csv("https://rud.is/data/2019-dem-debates.csv.gz"))
-## # A tibble: 192 x 4
-##    elapsed timestamp speaker      topic     
-##      <dbl> <drtn>    <chr>        <chr>     
-##  1   0.222 21:04     Sanders      Healthcare
-##  2   1.08  21:05     Biden        Economy   
-##  3   0.975 21:06     Harris       Economy   
-##  4   1.05  21:07     Hickenlooper Other     
-##  5   0.716 21:09     Sanders      Trump     
-##  6   1.26  21:10     Bennet       Healthcare
-##  7   0.218 21:12     Gillibrand   Healthcare
-##  8   1.03  21:12     Buttigieg    Education 
-##  9   0.378 21:13     Swalwell     Education 
-## 10   1.08  21:14     Yang         Economy   
-## # … with 182 more rows
+data("debates2019")
 
-debates_df %>% 
-  { .ordr <<- count(., speaker, wt=elapsed, sort=TRUE) ; . } %>% # order by who had the most time
-  mutate(speaker = factor(speaker, levels = rev(.ordr$speaker))) %>% 
-  ggplot() +
-  geom_chicklet(
-    aes(speaker, elapsed, group = timestamp, fill = topic), # group lets us use temporal order vs fill order
-    position = position_stack(reverse=TRUE), # reverse otherwise earliest is at end
-    radius = unit(3, "pt"), 
-    width = 0.6, 
-    color = "white"
-  ) +
-  coord_flip() +
-  ggthemes::scale_fill_tableau("Tableau 20") +
-  scale_x_discrete(expand = c(0, 0.5)) +
+debates2019 %>%
+  mutate(speaker = fct_reorder(speaker, elapsed, sum, .desc=FALSE)) %>%
+  mutate(topic = fct_other(
+    topic,
+    c("Immigration", "Economy", "Climate Change", "Gun Control", "Healthcare", "Foreign Policy"))
+  ) %>%
+  ggplot(aes(speaker, elapsed, group = timestamp, fill = topic)) +
+  geom_chicklet(width = 0.75) +
   scale_y_continuous(
-    expand = c(0, 0.0625), 
+    expand = c(0, 0.0625),
     position = "right",
     breaks = seq(0, 14, 2),
     labels = c(0, sprintf("%d min.", seq(2, 14, 2)))
   ) +
+  scale_fill_manual(
+    name = NULL,
+    values = c(
+      "Immigration" = "#ae4544",
+      "Economy" = "#d8cb98",
+      "Climate Change" = "#a4ad6f",
+      "Gun Control" = "#cc7c3a",
+      "Healthcare" = "#436f82",
+      "Foreign Policy" = "#7c5981",
+      "Other" = "#cccccc"
+    ),
+    breaks = setdiff(unique(debates2019$topic), "Other")
+  ) +
+  guides(
+    fill = guide_legend(nrow = 1)
+  ) +
+  coord_flip() +
   labs(
     x = NULL, y = NULL, fill = NULL,
     title = "How Long Each Candidate Spoke",
     subtitle = "Nights 1 & 2 of the June 2019 Democratic Debates",
-    caption = "Originals <https://www.nytimes.com/interactive/2019/admin/100000006581096.embedded.html?>\n<https://www.nytimes.com/interactive/2019/admin/100000006584572.embedded.html?>\nby @nytimes Weiyi Cai, Jason Kao, Jasmine C. Lee, Alicia Parlapiano and Jugal K. Patel\nEach bar segment represents the length of a candidate’s response to a question.\n#rstats reproduction by @hrbrmstr"
+    caption = "Each bar segment represents the length of a candidate’s response to a question.\n\nOriginals <https://www.nytimes.com/interactive/2019/admin/100000006581096.embedded.html?>\n<https://www.nytimes.com/interactive/2019/admin/100000006584572.embedded.html?>\nby @nytimes Weiyi Cai, Jason Kao, Jasmine C. Lee, Alicia Parlapiano and Jugal K. Patel\n\n#rstats reproduction by @hrbrmstr"
   ) +
-  theme_ipsum_rc(grid="") +
-  theme(axis.text.x = element_text(color = "gray60", size = 9)) +
-  theme(axis.ticks = element_line(color = "gray60", size = 0.15)) +
-  theme(axis.ticks.x = element_line(color = "gray0", size = 0.15)) +
-  theme(axis.ticks.length = grid::unit(5, "pt")) +
-  theme(axis.ticks.length.x = grid::unit(5, "pt")) +
-  theme(legend.position = "bottom")
+  theme_ipsum_rc(grid="X") +
+  theme(axis.text.x = element_text(color = "gray60", size = 10)) +
+  theme(legend.position = "top")
 ```
 
-<img src="README_files/figure-gfm/unnamed-chunk-1-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-1-1.png" width="100%" />
 
 ## ggchicklet Metrics
 
 | Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
 | :--- | -------: | ---: | --: | ---: | ----------: | ---: | -------: | ---: |
-| R    |        6 | 0.86 |  89 | 0.65 |          19 | 0.48 |       42 | 0.54 |
-| Rmd  |        1 | 0.14 |  47 | 0.35 |          21 | 0.52 |       36 | 0.46 |
+| R    |        9 | 0.82 | 123 | 0.51 |          27 | 0.37 |      105 | 0.54 |
+| Rmd  |        2 | 0.18 | 116 | 0.49 |          46 | 0.63 |       90 | 0.46 |
 
 ## Code of Conduct
 
