@@ -13,6 +13,8 @@ test_that("chicklet geoms are created properly", {
   ggplot(debates2019) +
   geom_chicklet(aes(speaker, elapsed, group = timestamp, fill = topic)) -> gg
 
+  print(gg)
+
   ggplot_build(gg) -> gb
 
   ggplot_gtable(gb) -> gt

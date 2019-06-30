@@ -68,7 +68,7 @@ geom_chicklet <- function(mapping = NULL, data = NULL,
   )
 }
 
-draw_key_rrect <- function(data, params, size) {
+draw_key_rrect <- function(data, params, size) { # nocov start
   grid::roundrectGrob(
     r = params$radius,
     default.units = "native",
@@ -80,13 +80,13 @@ draw_key_rrect <- function(data, params, size) {
       lty = data$linetype %||% 1
     )
   )
-}
+} # nocov end
 
 #' ggchicklet-ggplot2-ggproto
 #' @format NULL
 #' @usage NULL
 #' @export
-GeomChicklet <- ggproto(
+GeomChicklet <- ggproto( # nocov start
   "GeomChicklet", GeomRrect,
 
   required_aes = c("x", "y"),
@@ -112,4 +112,4 @@ GeomChicklet <- ggproto(
 
   draw_key = draw_key_rrect
 
-)
+) # nocov end

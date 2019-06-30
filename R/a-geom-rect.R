@@ -1,4 +1,4 @@
-geom_rrect <- function(mapping = NULL, data = NULL,
+geom_rrect <- function(mapping = NULL, data = NULL, # nocov start
                        stat = "identity", position = "identity",
                        radius = grid::unit(6, "pt"),
                        ...,
@@ -63,4 +63,4 @@ GeomRrect <- ggplot2::ggproto(
 
   draw_key = ggplot2::draw_key_polygon
 
-)
+) # nocov end
