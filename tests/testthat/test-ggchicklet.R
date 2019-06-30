@@ -15,6 +15,8 @@ test_that("chicklet geoms are created properly", {
 
   ggplot_build(gg) -> gb
 
+  ggplot_gtable(gb) -> gt
+
   expect_true(all(c("GeomChicklet", "GeomRrect") %in% class(gb$plot$layers[[1]]$geom)))
 
 
