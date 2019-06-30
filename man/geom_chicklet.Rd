@@ -91,6 +91,9 @@ left-to-right/bottom-to-top == earliest to latest order).
 \item \code{linetype}
 \item \code{size}
 }
+
+Use both \code{fill} and \code{group} when you want a fill colour per-segment but
+want to order the segments by another column (as in the Examples).
 }
 
 \examples{

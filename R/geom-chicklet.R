@@ -27,6 +27,9 @@
 #' - `linetype`
 #' - `size`
 #'
+#' Use both `fill` and `group` when you want a fill colour per-segment but
+#' want to order the segments by another column (as in the Examples).
+#'
 #' @inheritParams ggplot2::layer
 #' @inheritParams ggplot2::geom_point
 #' @inheritParams ggplot2::geom_col
@@ -70,7 +73,7 @@ geom_chicklet <- function(mapping = NULL, data = NULL,
 
 draw_key_rrect <- function(data, params, size) { # nocov start
   grid::roundrectGrob(
-    r = params$radius,
+    r = min(params$radius, unit(3, "pt")),
     default.units = "native",
     width = 1, height = 0.6,
     name = "lkey",
