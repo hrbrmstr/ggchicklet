@@ -3,32 +3,21 @@ Type: Package
 Title: Create 'Chicklet' (Rounded Segmented Column) Charts
 Version: 0.1.0
 Date: 2019-06-28
-Authors@R: c(
-    person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
-           comment = c(ORCID = "0000-0001-5670-2640")),
-    person("Antoine", "Bichat", role = "ctb")
-  )
+Authors@R: c( person("Bob", "Rudis", email = "bob@rud.is", role =
+        c("aut", "cre"), comment = c(ORCID = "0000-0001-5670-2640")),
+        person("Antoine", "Bichat", role = "ctb") )
 Maintainer: Bob Rudis <bob@rud.is>
 Description: Sometimes it is useful to stylize column charts a bit more
-    than just bland rectangles. Methods are provided to create rounded
-    rectangle segmented column charts (i.e. 'chicklets').
+        than just bland rectangles. Methods are provided to create
+        rounded rectangle segmented column charts (i.e. 'chicklets').
 URL: https://gitlab.com/hrbrmstr/ggchicklet
 BugReports: https://gitlab.com/hrbrmstr/ggchicklet/issues
 Encoding: UTF-8
 License: MIT + file LICENSE
-Suggests:
-    testthat,
-    covr,
-    hrbrthemes,
-    dplyr,
-    forcats,
-    knitr,
-    rmarkdown
-Depends:
-    R (>= 3.2.0)
-Imports:
-    ggplot2,
-    grid
+Suggests: covr, hrbrthemes, dplyr, forcats, knitr, rmarkdown,
+        tinytest
+Depends: R (>= 3.2.0)
+Imports: ggplot2, grid
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
