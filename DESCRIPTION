@@ -5,7 +5,8 @@ Version: 0.1.0
 Date: 2019-06-28
 Authors@R: c(
     person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
-           comment = c(ORCID = "0000-0001-5670-2640"))
+           comment = c(ORCID = "0000-0001-5670-2640")),
+    person("Antoine", "Bichat", role = "ctb")
   )
 Maintainer: Bob Rudis <bob@rud.is>
 Description: Sometimes it is useful to stylize column charts a bit more
