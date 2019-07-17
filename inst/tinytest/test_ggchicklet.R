@@ -1,4 +1,5 @@
 library(ggplot2)
+library(ggchicklet)
 
 data("debates2019")
 
@@ -16,5 +17,7 @@ ggplot_build(gg) -> gb
 
 ggplot_gtable(gb) -> gt
 
-expect_true(all(c("GeomChicklet", "GeomRrect") %in% class(gb$plot$layers[[1]]$geom)))
+expect_true(
+  all(c("GeomChicklet", "GeomRrect") %in% class(gb$plot$layers[[1]]$geom))
+)
 
