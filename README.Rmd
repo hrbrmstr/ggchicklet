@@ -29,20 +29,14 @@ rectangle segmented column charts (i.e. "chicklets").
 
 The following functions are implemented:
 
+```{r ingredients, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::describe_ingredients()
+```
+
 ## Installation
 
-```{r install-ex, eval=FALSE}
-install.packages("ggchicklet", repos = "https://cinc.rud.is")
-# or 
-devtools::install_git("https://git.rud.is/hrbrmstr/ggchicklet.git")
-# or 
-devtools::install_git("https://git.sr.ht/~hrbrmstr/ggchicklet")
-# or
-devtools::install_gitlab("hrbrmstr/ggchicklet")
-# or
-devtools::install_bitbucket("hrbrmstr/ggchicklet")
-# or (if you must)
-devtools::install_github("hrbrmstr/ggchicklet")
+```{r install-ex, results='asis', echo = FALSE}
+hrbrpkghelpr::install_block()
 ```
 
 ## Usage

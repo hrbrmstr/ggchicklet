@@ -85,9 +85,7 @@ draw_key_rrect <- function(data, params, size, ...) { # nocov start
   )
 } # nocov end
 
-#' ggchicklet-ggplot2-ggproto
-#' @format NULL
-#' @usage NULL
+#' @rdname geom_chicklet
 #' @export
 GeomChicklet <- ggproto( # nocov start
   "GeomChicklet", GeomRrect,

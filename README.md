@@ -19,19 +19,23 @@ segmented column charts (i.e. “chicklets”).
 
 The following functions are implemented:
 
+  - `debates2019`: June 2019 U.S. Democratic Debate Candidate/Topic
+    Times
+  - `geom_chicklet`: Chicklet (rounded segmented column) charts
+
 ## Installation
 
 ``` r
 install.packages("ggchicklet", repos = "https://cinc.rud.is")
-# or 
+# or
 devtools::install_git("https://git.rud.is/hrbrmstr/ggchicklet.git")
-# or 
+# or
 devtools::install_git("https://git.sr.ht/~hrbrmstr/ggchicklet")
 # or
 devtools::install_gitlab("hrbrmstr/ggchicklet")
 # or
 devtools::install_bitbucket("hrbrmstr/ggchicklet")
-# or (if you must)
+# or
 devtools::install_github("hrbrmstr/ggchicklet")
 ```
 
@@ -99,10 +103,10 @@ debates2019 %>%
 
 ## ggchicklet Metrics
 
-| Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
-| :--- | -------: | ---: | --: | ---: | ----------: | ---: | -------: | ---: |
-| R    |        9 | 0.82 | 123 | 0.51 |          27 | 0.37 |      105 | 0.54 |
-| Rmd  |        2 | 0.18 | 116 | 0.49 |          46 | 0.63 |       90 | 0.46 |
+| Lang | \# Files | (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
+| :--- | -------: | --: | --: | ---: | ----------: | ---: | -------: | ---: |
+| R    |        8 | 0.8 | 119 | 0.52 |          27 | 0.36 |      105 | 0.55 |
+| Rmd  |        2 | 0.2 | 112 | 0.48 |          47 | 0.64 |       87 | 0.45 |
 
 ## Code of Conduct
 
