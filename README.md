@@ -1,9 +1,18 @@
 
-[![Travis-CI Build
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Signed
+by](https://img.shields.io/badge/Keybase-Verified-brightgreen.svg)](https://keybase.io/hrbrmstr)
+![Signed commit
+%](https://img.shields.io/badge/Signed_Commits-100%25-lightgrey.svg)
+[![Linux build
 Status](https://travis-ci.org/hrbrmstr/ggchicklet.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggchicklet)
 [![Coverage
 Status](https://codecov.io/gh/hrbrmstr/ggchicklet/branch/master/graph/badge.svg)](https://codecov.io/gh/hrbrmstr/ggchicklet)
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/ggchicklet)](https://cran.r-project.org/package=ggchicklet)
+![Minimal R
+Version](https://img.shields.io/badge/R%3E%3D-3.2.0-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 # ggchicklet
 
@@ -17,23 +26,31 @@ segmented column charts (i.e. “chicklets”).
 
 ## What’s Inside The Tin
 
+  - `debates2019`: June 2019 U.S. Democratic Debate Candidate/Topic
+    Times
+  - `geom_chicklet`: Chicklet (rounded segmented column) charts
+  - `GeomChicklet`: ggchicklet-ggplot2-ggproto
+
 The following functions are implemented:
 
 ## Installation
 
 ``` r
 install.packages("ggchicklet", repos = "https://cinc.rud.is")
-# or 
-devtools::install_git("https://git.rud.is/hrbrmstr/ggchicklet.git")
-# or 
-devtools::install_git("https://git.sr.ht/~hrbrmstr/ggchicklet")
 # or
-devtools::install_gitlab("hrbrmstr/ggchicklet")
+remotes::install_git("https://git.rud.is/hrbrmstr/ggchicklet.git")
 # or
-devtools::install_bitbucket("hrbrmstr/ggchicklet")
-# or (if you must)
-devtools::install_github("hrbrmstr/ggchicklet")
+remotes::install_git("https://git.sr.ht/~hrbrmstr/ggchicklet")
+# or
+remotes::install_gitlab("hrbrmstr/ggchicklet")
+# or
+remotes::install_bitbucket("hrbrmstr/ggchicklet")
+# or
+remotes::install_github("hrbrmstr/ggchicklet")
 ```
+
+NOTE: To use the ‘remotes’ install options you will need to have the
+[{remotes} package](https://github.com/r-lib/remotes) installed.
 
 ## Usage
 
@@ -95,14 +112,14 @@ debates2019 %>%
   theme(legend.position = "top")
 ```
 
-<img src="man/figures/README-unnamed-chunk-1-1.png" width="100%" />
+<img src="man/figures/README-nyt-1.png" width="100%" />
 
 ## ggchicklet Metrics
 
-| Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
-| :--- | -------: | ---: | --: | ---: | ----------: | ---: | -------: | ---: |
-| R    |        9 | 0.82 | 123 | 0.51 |          27 | 0.37 |      105 | 0.54 |
-| Rmd  |        2 | 0.18 | 116 | 0.49 |          46 | 0.63 |       90 | 0.46 |
+| Lang | \# Files | (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
+| :--- | -------: | --: | --: | ---: | ----------: | ---: | -------: | ---: |
+| R    |        8 | 0.8 | 119 | 0.52 |          27 | 0.36 |      107 | 0.56 |
+| Rmd  |        2 | 0.2 | 109 | 0.48 |          47 | 0.64 |       85 | 0.44 |
 
 ## Code of Conduct
 

@@ -7,13 +7,13 @@
 #' \if{html}{
 #' A sample of the output from \code{geom_chicklet()}:
 #'
-#' \figure{chickletex.png}{options: width="100\%" alt="Figure: chickletex.png"}
+#' \figure{README-nyt-1.png}{options: width="100\%" alt="Figure: README-nyt-1.png"}
 #' }
 #'
 #' \if{latex}{
 #' A sample of the output from \code{geom_chicklet()}:
 #'
-#' \figure{chickletex.png}{options: width=10cm}
+#' \figure{README-nyt-1.png}{options: width=10cm}
 #' }
 #'
 #' @section Aesthetics:
@@ -71,14 +71,14 @@ geom_chicklet <- function(mapping = NULL, data = NULL,
   )
 }
 
-draw_key_rrect <- function(data, params, size, ...) { # nocov start
+draw_key_rrect <- function(data, params, size) { # nocov start
   grid::roundrectGrob(
     r = min(params$radius, unit(3, "pt")),
     default.units = "native",
     width = 1, height = 0.6,
     name = "lkey",
     gp = grid::gpar(
-      col = params[["color"]][[1]] %l0% params[["colour"]][1] %l0% data[["colour"]][[1]] %l0% "#00000000",
+      col = params$color %l0% "white",
       fill = alpha(data$fill %||% data$colour %||% "grey20", data$alpha),
       lty = data$linetype %||% 1
     )

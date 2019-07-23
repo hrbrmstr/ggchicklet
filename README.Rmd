@@ -4,16 +4,12 @@ editor_options:
   chunk_output_type: console
 ---
 ```{r pkg-knitr-opts, include=FALSE}
-knitr::opts_chunk$set(
-  collapse=TRUE, fig.retina=2, message=FALSE, warning=FALSE,
-  fig.path = "man/figures/README-"
-)
-options(width=120)
+hrbrpkghelpr::global_opts()
 ```
 
-[![Travis-CI Build Status](https://travis-ci.org/hrbrmstr/ggchicklet.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggchicklet) 
-[![Coverage Status](https://codecov.io/gh/hrbrmstr/ggchicklet/branch/master/graph/badge.svg)](https://codecov.io/gh/hrbrmstr/ggchicklet)
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/ggchicklet)](https://cran.r-project.org/package=ggchicklet)
+```{r badges, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::stinking_badges()
+```
 
 # ggchicklet
 
@@ -22,27 +18,20 @@ Create Chicklet (Rounded Segmented Column) Charts
 ## Description
 
 Sometimes it is useful to stylize column charts a bit more
-than just bland rectangles. Methods are provided to create rounded
-rectangle segmented column charts (i.e. "chicklets").
+than just bland rectangles. Methods are provided to create rounded rectangle segmented column charts (i.e. "chicklets").
 
 ## What's Inside The Tin
+
+```{r ingredients, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::describe_ingredients()
+```
 
 The following functions are implemented:
 
 ## Installation
 
-```{r install-ex, eval=FALSE}
-install.packages("ggchicklet", repos = "https://cinc.rud.is")
-# or 
-devtools::install_git("https://git.rud.is/hrbrmstr/ggchicklet.git")
-# or 
-devtools::install_git("https://git.sr.ht/~hrbrmstr/ggchicklet")
-# or
-devtools::install_gitlab("hrbrmstr/ggchicklet")
-# or
-devtools::install_bitbucket("hrbrmstr/ggchicklet")
-# or (if you must)
-devtools::install_github("hrbrmstr/ggchicklet")
+```{r install-ex, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::install_block()
 ```
 
 ## Usage
@@ -57,7 +46,7 @@ packageVersion("ggchicklet")
 
 ### From the NYTimes
 
-```{r fig.width=10, fig.height=9, out.width="100%"}
+```{r nyt, fig.width=10, fig.height=9, out.width="100%"}
 library(hrbrthemes)
 library(tidyverse)
 
