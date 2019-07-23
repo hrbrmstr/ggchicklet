@@ -29,7 +29,6 @@ segmented column charts (i.e. “chicklets”).
   - `debates2019`: June 2019 U.S. Democratic Debate Candidate/Topic
     Times
   - `geom_chicklet`: Chicklet (rounded segmented column) charts
-  - `GeomChicklet`: ggchicklet-ggplot2-ggproto
 
 The following functions are implemented:
 
@@ -118,8 +117,8 @@ debates2019 %>%
 
 | Lang | \# Files | (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
 | :--- | -------: | --: | --: | ---: | ----------: | ---: | -------: | ---: |
-| R    |        8 | 0.8 | 119 | 0.52 |          27 | 0.36 |      107 | 0.56 |
-| Rmd  |        2 | 0.2 | 109 | 0.48 |          47 | 0.64 |       85 | 0.44 |
+| R    |        8 | 0.8 | 119 | 0.52 |          27 | 0.36 |      105 | 0.55 |
+| Rmd  |        2 | 0.2 | 109 | 0.48 |          47 | 0.64 |       85 | 0.45 |
 
 ## Code of Conduct
 
