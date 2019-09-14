@@ -57,7 +57,7 @@ read_html(here::here("data-raw/2019-06-26-us-elections-debate-speaking-time.html
       grepl("Election", topic) ~ "Elections Reform",
       grepl("Health", topic) ~ "Healthcare",
       grepl("Party", topic) ~ "Party Strategy",
-      grepl("Women", topic) ~ "Womens Rights",
+      grepl("Women", topic) ~ "Women's Rights",
       TRUE ~ topic
     )
   ) %>%
@@ -103,7 +103,7 @@ read_html(here::here("data-raw/2019-06-27-us-elections-debate-speaking-time.html
       grepl("Election", topic) ~ "Elections Reform",
       grepl("Health", topic) ~ "Healthcare",
       grepl("Party", topic) ~ "Party Strategy",
-      grepl("Women", topic) ~ "Womens Rights",
+      grepl("Women", topic) ~ "Women's Rights",
       TRUE ~ topic
     )
   ) %>%
@@ -149,7 +149,7 @@ read_html(here::here("data-raw/2019-07-30-us-elections-debate-speaking-time.html
       grepl("Election", topic) ~ "Elections Reform",
       grepl("Health", topic) ~ "Healthcare",
       grepl("Party", topic) ~ "Party Strategy",
-      grepl("Women", topic) ~ "Womens Rights",
+      grepl("Women", topic) ~ "Women's Rights",
       TRUE ~ topic
     )
   ) %>%
@@ -195,7 +195,7 @@ read_html(here::here("data-raw/2019-07-31-us-elections-debate-speaking-time.html
       grepl("Election", topic) ~ "Elections Reform",
       grepl("Health", topic) ~ "Healthcare",
       grepl("Party", topic) ~ "Party Strategy",
-      grepl("Women", topic) ~ "Womens Rights",
+      grepl("Women", topic) ~ "Women's Rights",
       TRUE ~ topic
     )
   ) %>%
@@ -241,7 +241,7 @@ read_html(here::here("data-raw/2019-09-12-us-elections-debate-speaking-time.html
       grepl("Election", topic) ~ "Elections Reform",
       grepl("Health", topic) ~ "Healthcare",
       grepl("Party", topic) ~ "Party Strategy",
-      grepl("Women", topic) ~ "Womens Rights",
+      grepl("Women", topic) ~ "Women's Rights",
       TRUE ~ topic
     )
   ) %>%
