@@ -53,6 +53,7 @@ library(tidyverse)
 data("debates2019")
 
 debates2019 %>%
+  filter(debate_group == 1) %>% 
   mutate(speaker = fct_reorder(speaker, elapsed, sum, .desc=FALSE)) %>%
   mutate(topic = fct_other(
     topic,
@@ -92,8 +93,6 @@ debates2019 %>%
   theme_ipsum_rc(grid="X") +
   theme(axis.text.x = element_text(color = "gray60", size = 10)) +
   theme(legend.position = "top")
-
-
 ```
 
 ## ggchicklet Metrics

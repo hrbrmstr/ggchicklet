@@ -26,7 +26,7 @@ segmented column charts (i.e. “chicklets”).
 
 ## What’s Inside The Tin
 
-  - `debates2019`: June 2019 U.S. Democratic Debate Candidate/Topic
+  - `debates2019`: 2019-2020 U.S. Democratic Debate Candidate/Topic
     Times
   - `geom_chicklet`: Chicklet (rounded segmented column) charts
 
@@ -58,7 +58,7 @@ library(ggchicklet)
 
 # current version
 packageVersion("ggchicklet")
-## [1] '0.1.0'
+## [1] '0.2.0'
 ```
 
 ### From the NYTimes
@@ -70,6 +70,7 @@ library(tidyverse)
 data("debates2019")
 
 debates2019 %>%
+  filter(debate_group == 1) %>% 
   mutate(speaker = fct_reorder(speaker, elapsed, sum, .desc=FALSE)) %>%
   mutate(topic = fct_other(
     topic,
@@ -115,10 +116,11 @@ debates2019 %>%
 
 ## ggchicklet Metrics
 
-| Lang | \# Files | (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
-| :--- | -------: | --: | --: | ---: | ----------: | ---: | -------: | ---: |
-| R    |        8 | 0.8 | 119 | 0.52 |          27 | 0.36 |      105 | 0.55 |
-| Rmd  |        2 | 0.2 | 109 | 0.48 |          47 | 0.64 |       85 | 0.45 |
+| Lang | \# Files |  (%) |  LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
+| :--- | -------: | ---: | ---: | ---: | ----------: | ---: | -------: | ---: |
+| HTML |        5 | 0.33 | 7860 | 0.94 |        1858 | 0.96 |      239 | 0.54 |
+| R    |        8 | 0.53 |  350 | 0.04 |          34 | 0.02 |      121 | 0.27 |
+| Rmd  |        2 | 0.13 |  117 | 0.01 |          45 | 0.02 |       85 | 0.19 |
 
 ## Code of Conduct
 

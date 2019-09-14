@@ -51,7 +51,10 @@ The `elapsed` column contains how long the candidate spoke and `timestamp` is th
 There are also candidates:
 
 ```{r data-ex-01}
-distinct(debates2019, speaker) %>% 
+debates2019 %>% 
+  filter(debate_group == 1) %>% 
+  filter(night == 1) %>% 
+  distinct(speaker) %>% 
   arrange(speaker) %>% 
   print(n=nrow(.))
 ```
@@ -59,7 +62,10 @@ distinct(debates2019, speaker) %>%
 and the topics debates:
 
 ```{r data-ex-02}
-distinct(debates2019, topic) %>% 
+debates2019 %>% 
+  filter(debate_group == 1) %>% 
+  filter(night == 1) %>% 
+  distinct(topic) %>% 
   arrange(topic) %>% 
   print(n=nrow(.))
 ```
@@ -76,6 +82,7 @@ the segments by topic.
 
 ```{r chicklet, fig.width=600/72, fig.height=600/72}
 debates2019 %>%
+  filter(debate_group == 1) %>% 
   mutate(speaker = fct_reorder(speaker, elapsed, sum, .desc=FALSE)) %>%
   mutate(topic = fct_other(
     topic,
