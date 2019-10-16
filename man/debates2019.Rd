@@ -26,5 +26,7 @@ metadata and opening/closing statement records.
 \url{https://www.nytimes.com/interactive/2019/07/31/us/elections/debate-speaking-time.html}
 
 \url{https://www.nytimes.com/interactive/2019/09/12/us/elections/debate-speaking-time.html}
+
+\url{https://www.nytimes.com/interactive/2019/10/15/us/elections/debate-speaking-time.html}
 }
 \keyword{datasets}

@@ -15,5 +15,6 @@
 #' @references <https://www.nytimes.com/interactive/2019/07/30/us/elections/debate-speaking-time.html>
 #' @references <https://www.nytimes.com/interactive/2019/07/31/us/elections/debate-speaking-time.html>
 #' @references <https://www.nytimes.com/interactive/2019/09/12/us/elections/debate-speaking-time.html>
+#' @references <https://www.nytimes.com/interactive/2019/10/15/us/elections/debate-speaking-time.html>
 #' @usage data("debates2019")
 NULL
