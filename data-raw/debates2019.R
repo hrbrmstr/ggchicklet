@@ -320,8 +320,9 @@ read_html(here::here("data-raw/2019-11-20-us-elections-debate-speaking-time.html
   filter(speaker != "") %>%
   mutate(
     topic = case_when(
-      topic == "" ~ "Other",
+      topic == "" & speaker == "Biden" ~ "Closing",
       grepl("climate", topic) ~ "Climate",
+      grepl("closing", topic) ~ "Closing",
       grepl("criminal-justice", topic) ~ "Criminal Justice",
       grepl("electability", topic) ~ "Electability",
       grepl("election-reform", topic) ~ "Election Reform",
@@ -341,6 +342,7 @@ read_html(here::here("data-raw/2019-11-20-us-elections-debate-speaking-time.html
       grepl("tech-companies", topic) ~ "Tech Companies",
       grepl("white-supremacist violence", topic) ~ "White-Supremacy",
       grepl("womens-issues", topic) ~ "Women's Rights",
+      topic == "" ~ "Other",
       TRUE ~ topic
     )
   ) %>%
