@@ -23,6 +23,7 @@ if (!file.exists(here::here("data-raw/2019-07-31-us-elections-debate-speaking-ti
 if (!file.exists(here::here("data-raw/2019-09-12-us-elections-debate-speaking-time.html"))) download.file("https://www.nytimes.com/interactive/2019/09/12/us/elections/debate-speaking-time.html", here::here("data-raw/2019-09-12-us-elections-debate-speaking-time.html"))
 if (!file.exists(here::here("data-raw/2019-10-15-us-elections-debate-speaking-time.html"))) download.file("https://www.nytimes.com/interactive/2019/10/15/us/elections/debate-speaking-time.html", here::here("data-raw/2019-10-15-us-elections-debate-speaking-time.html"))
 if (!file.exists(here::here("data-raw/2019-11-20-us-elections-debate-speaking-time.html"))) download.file("https://www.nytimes.com/interactive/2019/11/20/us/elections/debate-speaking-time.html", here::here("data-raw/2019-11-20-us-elections-debate-speaking-time.html"))
+if (!file.exists(here::here("data-raw/2019-12-19-us-elections-debate-speaking-time.html"))) download.file("https://www.nytimes.com/interactive/2019/12/19/us/elections/debate-speaking-time.html", here::here("data-raw/2019-12-19-us-elections-debate-speaking-time.html"))
 
 read_html(here::here("data-raw/2019-06-26-us-elections-debate-speaking-time.html")) %>%
   html_nodes(xpath = ".//script[contains(., 'NYTG_DEMDEBATES')]") %>%
@@ -353,6 +354,64 @@ read_html(here::here("data-raw/2019-11-20-us-elections-debate-speaking-time.html
   ) %>%
   as_tibble() -> nov_day_1
 
+
+read_html(here::here("data-raw/2019-12-19-us-elections-debate-speaking-time.html")) %>%
+  html_nodes(xpath = ".//script[contains(., 'NYTG_DEMDEBATES')]") %>%
+  html_text() %>%
+  stri_split_lines() %>%
+  unlist() %>%
+  .[3] %>%
+  stri_replace_first_regex("^.*NYTG_DEMDEBATES = ", "") %>%
+  jsonlite::fromJSON() %>%
+  as_tibble() %>%
+  mutate(
+    elapsed = as.numeric(elapsed)/60,
+    debate_date = as.Date("2019-12-19"),
+    speaker = stri_trans_totitle(speaker),
+    timestamp = parse_time(timestamp),
+    debate_group = 6,
+    night = 1
+  ) %>%
+  filter(speaker != "") %>%
+  mutate(
+    topic = case_when(
+      topic == "" ~ "Other",
+      grepl("climate", topic) ~ "Climate",
+      grepl("closing", topic) ~ "Closing",
+      grepl("judges", topic) ~ "Judges",
+      grepl("race", topic) ~ "Race",
+      grepl("education", topic) ~ "Education",
+      grepl("human-rights", topic) ~ "Human Rights",
+      grepl("criminal-justice", topic) ~ "Criminal Justice",
+      grepl("electability", topic) ~ "Electability",
+      grepl("election-reform", topic) ~ "Election Reform",
+      grepl("executive-power", topic) ~ "Executive Power",
+      grepl("candidate-age", topic) ~ "Age",
+      grepl("foreign-policy", topic) ~ "Foreign Policy",
+      grepl("gun-control", topic) ~ "Gun Control",
+      grepl("health-care", topic) ~ "Healthcare",
+      grepl("immigration", topic) ~ "Immigration",
+      grepl("impeachment", topic) ~ "Impeachment",
+      grepl("income-inequality", topic) ~ "Income Inequality",
+      grepl("economy", topic) ~ "Economy",
+      grepl("middle-east policy", topic) ~ "Foreign Policy",
+      grepl("opioids", topic) ~ "Opioids",
+      grepl("party-strategy", topic) ~ "Party Strategy",
+      grepl("public-service", topic) ~ "Public Service",
+      grepl("tech-companies", topic) ~ "Tech Companies",
+      grepl("white-supremacist violence", topic) ~ "White-Supremacy",
+      grepl("womens-issues", topic) ~ "Women's Rights",
+      topic == "" ~ "Other",
+      TRUE ~ topic
+    )
+  ) %>%
+  filter(
+    !is.na(timestamp),
+    speaker != "",
+    speaker != "Moderator"
+  ) %>%
+  as_tibble() -> dec_day_1
+
 bind_rows(
   jun_day_1,
   jun_day_2,
@@ -360,8 +419,13 @@ bind_rows(
   jul_day_2,
   sep_day_1,
   oct_day_1,
-  nov_day_1
-) -> debates2019
+  nov_day_1,
+  dec_day_1
+) %>%
+  mutate(topic = case_when(
+    grepl("elect.*form", topic, ignore.case = TRUE) ~ "Election Reform",
+    TRUE ~ topic
+  )) -> debates2019
 
 usethis::use_data(debates2019, overwrite = TRUE)
 
