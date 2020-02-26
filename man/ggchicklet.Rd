@@ -26,8 +26,8 @@ A sample of the output from \code{geom_chicklet()}:
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://gitlab.com/hrbrmstr/ggchicklet}
-  \item Report bugs at \url{https://gitlab.com/hrbrmstr/ggchicklet/issues}
+  \item \url{https://git.rud.is/hrbrmstr/ggchicklet}
+  \item Report bugs at \url{https://git.rud.is/hrbrmstr/ggchicklet/issues}
 }
 
 }

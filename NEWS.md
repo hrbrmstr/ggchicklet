@@ -1,3 +1,6 @@
+0.5.2
+* Data updated for latest debate (2020-02-25)
+
 0.5.1
 * Data updated for latest debate (2020-02-19)
 

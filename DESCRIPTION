@@ -1,8 +1,8 @@
 Package: ggchicklet
 Type: Package
 Title: Create 'Chicklet' (Rounded Segmented Column) Charts
-Version: 0.5.0
-Date: 2020-02-07
+Version: 0.5.2
+Date: 2020-02-25
 Authors@R: c( person("Bob", "Rudis", email = "bob@rud.is", role =
         c("aut", "cre"), comment = c(ORCID = "0000-0001-5670-2640")),
         person("Antoine", "Bichat", role = "ctb") )
@@ -10,8 +10,8 @@ Maintainer: Bob Rudis <bob@rud.is>
 Description: Sometimes it is useful to stylize column charts a bit more
         than just bland rectangles. Methods are provided to create
         rounded rectangle segmented column charts (i.e. 'chicklets').
-URL: https://gitlab.com/hrbrmstr/ggchicklet
-BugReports: https://gitlab.com/hrbrmstr/ggchicklet/issues
+URL: https://git.rud.is/hrbrmstr/ggchicklet
+BugReports: https://git.rud.is/hrbrmstr/ggchicklet/issues
 Encoding: UTF-8
 License: MIT + file LICENSE
 Suggests: covr, hrbrthemes, dplyr, forcats, knitr, rmarkdown,
