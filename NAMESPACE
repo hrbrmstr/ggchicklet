@@ -2,6 +2,7 @@
 
 export(GeomChicklet)
 export(geom_chicklet)
+export(geom_rrect)
 import(ggplot2)
 importFrom(grid,gpar)
 importFrom(grid,grobName)

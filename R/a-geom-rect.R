@@ -1,3 +1,22 @@
+#' Rounded rectangles
+#'
+#' Does what [ggplot2::geom_rect()] does, only _curvier_.
+#'
+#' @inherit ggplot2::geom_rect
+#' @param radius radius of rectangle corners (using [grid::unit()]s)
+#' @export
+#' @examples
+#' library(ggplot2)
+#'
+#' data.frame(
+#'   x = rep(c(2, 5, 7, 9, 12), 2),
+#'   y = rep(c(1, 2), each = 5),
+#'   z = factor(rep(1:5, each = 2)),
+#'   w = rep(diff(c(0, 4, 6, 8, 10, 14)), 2)
+#' ) -> xdf
+#'
+#' ggplot(xdf, aes(xmin = x - w / 2, xmax = x + w / 2, ymin = y, ymax = y + 1)) +
+#'   geom_rrect(aes(fill = z), colour = "white")
 geom_rrect <- function(mapping = NULL, data = NULL, # nocov start
                        stat = "identity", position = "identity",
                        radius = grid::unit(6, "pt"),

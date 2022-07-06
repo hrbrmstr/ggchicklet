@@ -1,8 +1,8 @@
 Package: ggchicklet
 Type: Package
 Title: Create 'Chicklet' (Rounded Segmented Column) Charts
-Version: 0.5.2
-Date: 2020-02-25
+Version: 0.6.0
+Date: 2022-06-06
 Authors@R: c( person("Bob", "Rudis", email = "bob@rud.is", role =
         c("aut", "cre"), comment = c(ORCID = "0000-0001-5670-2640")),
         person("Antoine", "Bichat", role = "ctb") )
@@ -19,5 +19,5 @@ Suggests: covr, hrbrthemes, dplyr, forcats, knitr, rmarkdown,
 Depends: R (>= 3.2.0)
 Imports: ggplot2, grid
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.2
+RoxygenNote: 7.2.0
 VignetteBuilder: knitr

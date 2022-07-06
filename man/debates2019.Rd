@@ -4,8 +4,10 @@
 \name{debates2019}
 \alias{debates2019}
 \title{2019-2020 U.S. Democratic Debate Candidate/Topic Times}
-\format{data frame with columns: \code{elapsed} (dbl), \code{timestamp} (time), \code{speaker} (chr), \code{topic} (chr)
-\code{debate_date} (date), \code{debate_group} (dbl), \code{night} (dbl)}
+\format{
+data frame with columns: \code{elapsed} (dbl), \code{timestamp} (time), \code{speaker} (chr), \code{topic} (chr)
+\code{debate_date} (date), \code{debate_group} (dbl), \code{night} (dbl)
+}
 \usage{
 data("debates2019")
 }
